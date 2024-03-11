@@ -13,17 +13,20 @@ namespace SignalR.DataAccessLayer.EntityFramework
 
         public int ActiveCategoryCount()
         {
-            throw new NotImplementedException();
+            using var context = new SignalRContext();
+            return context.Categories.Where(x => x.Status == true).Count();
         }
 
         public int CategoryCount()
         {
-            throw new NotImplementedException();
+            using var context = new SignalRContext();
+            return context.Categories.Count();
         }
 
         public int PassiveCategoryCount()
         {
-            throw new NotImplementedException();
+            using var context = new SignalRContext();
+            return context.Categories.Where(x => x.Status == false).Count();
         }
     }
 }
