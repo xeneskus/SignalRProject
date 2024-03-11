@@ -1,3 +1,4 @@
+using SignalR.API.Hubs;
 using SignalR.BusinessLayer.Abstract;
 using SignalR.BusinessLayer.Concrete;
 using SignalR.DataAccessLayer.Abstract;
@@ -72,5 +73,7 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
-
+app.MapHub<SignalRHub>("/signalrhub");
+//localhost://1234/swagger/category/index
+//localhost://1234/signalrhub  bu kýsýma istekte bulunabilmek için bu endpointi kullanýyoruz.
 app.Run();
