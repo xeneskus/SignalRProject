@@ -80,6 +80,7 @@ builder.Services.AddScoped<INotificationDal, EfNotificationDal>();
 
 builder.Services.AddScoped<IMessageService, MessageManager>();
 builder.Services.AddScoped<IMessageDal, EfMessageDal>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

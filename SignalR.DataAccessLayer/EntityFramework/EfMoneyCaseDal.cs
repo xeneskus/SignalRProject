@@ -13,7 +13,8 @@ namespace SignalR.DataAccessLayer.EntityFramework
 
         public decimal TotalMoneyCaseAmount()
         {
-            throw new NotImplementedException();
+            using var context = new SignalRContext();
+            return context.MoneyCases.Select(x => x.TotalAmount).FirstOrDefault();
         }
     }
 }
