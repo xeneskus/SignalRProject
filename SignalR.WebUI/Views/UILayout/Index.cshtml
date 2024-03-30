@@ -1,7 +1,8 @@
-﻿@{
+﻿
+@{
     Layout = null;
-
 }
+
 @* UI Layout*@
 <!DOCTYPE html>
 <html>
@@ -13,8 +14,8 @@
     @await Component.InvokeAsync("_UILayoutNavbarComponentPartial")
 
     <!-- book section -->
-    @RenderBody()
-    <!-- end book section -->
+@*    @RenderBody()
+*@    <!-- end book section -->
     <!-- footer section -->
     @await Component.InvokeAsync("_UILayoutFooterComponentPartial")
 
@@ -27,3 +28,4 @@
 </body>
 
 </html>
+
