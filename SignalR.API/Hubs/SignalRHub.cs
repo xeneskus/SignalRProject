@@ -103,5 +103,10 @@ namespace SignalR.API.Hubs
             var value11 = _productService.TTotalPriceBySaladCategory();
             await Clients.All.SendAsync("ReceiveTotalPriceBySaladCategory", value11);
         }
+        public async Task GetBookingList()
+        {
+            var values = _bookingService.TGetListAll();
+            await Clients.All.SendAsync("ReceiveBookingList", values);
+        }
     }
 }
