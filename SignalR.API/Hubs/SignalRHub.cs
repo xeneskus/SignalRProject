@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.SignalR;
 using SignalR.BusinessLayer.Abstract;
-using SignalR.DataAccessLayer.Concrete;
 
 namespace SignalR.API.Hubs
 {
@@ -107,6 +106,14 @@ namespace SignalR.API.Hubs
         {
             var values = _bookingService.TGetListAll();
             await Clients.All.SendAsync("ReceiveBookingList", values);
+        }
+        public async Task SendNotification()
+        {
+            var value = _notificationService.TNotificationCountByStatusFalse();
+            await Clients.All.SendAsync("ReceiveNotificationCountByFalse", value);
+
+            var notificationListByFalse = _notificationService.TGetAllNotificationByFalse();
+            await Clients.All.SendAsync("ReceiveNotificationListByFalse", notificationListByFalse);
         }
     }
 }
