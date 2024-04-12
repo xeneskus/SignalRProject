@@ -11,14 +11,20 @@ namespace SignalR.DataAccessLayer.EntityFramework
 		{
 		}
 
-        public void BookingStatusApproved(int id)
-        {
-            throw new NotImplementedException();
-        }
+		public void BookingStatusApproved(int id)
+		{
+			using var context = new SignalRContext();
+			var values = context.Bookings.Find(id);
+			values.Description = "Rezervasyon Onaylandı";
+			context.SaveChanges();
+		}
 
-        public void BookingStatusCancelled(int id)
-        {
-            throw new NotImplementedException();
-        }
-    }
+		public void BookingStatusCancelled(int id)
+		{
+			using var context = new SignalRContext();
+			var values = context.Bookings.Find(id);
+			values.Description = "Rezervasyon İptal Edildi";
+			context.SaveChanges();
+		}
+	}
 }
